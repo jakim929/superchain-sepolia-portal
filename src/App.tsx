@@ -27,7 +27,7 @@ function App() {
       <div>Source of truth: <a className="underline" href="https://github.com/ethereum-optimism/superchain-registry/tree/main/superchain/extra/addresses/sepolia">Superchain Registry</a></div>
       <div className="flex flex-col">
         <div className='font-semibold'>
-          Some easy to use ENS domains 
+          Following domains should resolve to the addresses on ENS (try pasting into Metamask)
         </div>
       {
         supportedDomains.map(({ domain, optimismPortalProxyAddress }) => {
