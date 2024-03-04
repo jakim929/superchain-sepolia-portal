@@ -19,27 +19,28 @@ const supportedDomains = [
 
 
 function App() {
-  console.log(window.location.hostname)
-
   return (
-    <div className="flex flex-col p-10">
+    <div className="flex flex-col p-10 gap-4">
       <div className="text-lg font-semibold">OptimismPortalProxy addresses</div>
       <div>Source of truth: <a className="underline" href="https://github.com/ethereum-optimism/superchain-registry/tree/main/superchain/extra/addresses/sepolia">Superchain Registry</a></div>
       <div className="flex flex-col">
         <div className='font-semibold'>
-          Following domains should resolve to the addresses on ENS (try pasting into Metamask)
+          Following domains should resolve to the addresses on ENS (try pasting into Metamask, or https://ens-resolution.vercel.app/)
         </div>
-      {
-        supportedDomains.map(({ domain, optimismPortalProxyAddress }) => {
-          const isCurrentDomain = window.location.hostname.includes(domain)
-          return (
-            <div key={domain} className={cn('flex', isCurrentDomain && 'font-semibold')}>
-              <div className="w-32">{domain}</div>
-              <div className="w-64">{optimismPortalProxyAddress}</div>
-            </div>
-          )
-        })
-      }
+        {
+          supportedDomains.map(({ domain, optimismPortalProxyAddress }) => {
+            const isCurrentDomain = window.location.hostname.includes(domain)
+            return (
+              <div key={domain} className={cn('flex', isCurrentDomain && 'font-semibold')}>
+                <div className="w-32">{domain}</div>
+                <div className="w-64">{optimismPortalProxyAddress}</div>
+              </div>
+            )
+          })
+        }
+      </div>
+      <div>
+      <a className="underline" href="https://github.com/jakim929/superchain-sepolia-portal">Github</a>
       </div>
     </div>
   )
